@@ -4,6 +4,7 @@ const app = express()
 const cors = require('cors')
 const dbConnect = require('./mongoDB/db');
 const authRoute = require('./routes/authRoute');
+const userRoute = require('./routes/api/userRoute');
 
 //connection to mongoDB
 dbConnect();
@@ -14,6 +15,7 @@ app.use(cors());
 
 //routes
 app.use('/api/auth', authRoute);
+app.use('api/user', userRoute);
 
 
 const listener = app.listen(process.env.PORT || 3000, () => {
