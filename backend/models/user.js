@@ -10,11 +10,9 @@ const userSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true},
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    //repeat_password: { type: String, required: true},
     birthdate: { type: Date, required: true },
-    gender: { type: String, enum: ['male', 'female', 'non-binary']},
-    bio: String
-});
+    gender: { type: String, enum: ['male', 'female', 'non-binary']}
+}); 
 
 userSchema.methods.generateAuthToken = function() {
     return jwt.sign({_id: this._id}, process.env.JWTPRIVATEKEY, {expiresIn: '7d'});

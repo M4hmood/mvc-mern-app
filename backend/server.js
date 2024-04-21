@@ -18,6 +18,6 @@ app.use('/api/auth', authRoute);
 app.use('api/user', userRoute);
 
 
-const listener = app.listen(process.env.PORT || 3000, () => {
+const listener = app.listen(process.env.PORT || 3001, () => {
     console.log(`App listening on port ${listener.address().port}`);
 });
